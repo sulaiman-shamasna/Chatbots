@@ -1,0 +1,13 @@
+services:
+  vectordb:
+    build:
+      context: ./vectordb
+      dockerfile: Dockerfile
+    container_name: VECTORDB
+    volumes:
+      - ./data:/app/data  
+      - ./vectordb_storage:/app/vectordb_storage  
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+    stdin_open: true
+    tty: true
